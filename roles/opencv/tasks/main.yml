@@ -2,7 +2,24 @@
 - name: Install dependencies
   become: true
   apt: "name='{{ item }}' state=installed update_cache=yes"
-  with_items: opencv_dependencies
+  with_items:
+    - build-essential
+    - cmake
+    - libgtk2.0-dev
+    - pkg-config
+    - ffmpeg
+    - libavcodec-dev
+    - libavformat-dev
+    - libswscale-dev
+    - python-dev
+    - python-numpy
+    - libtbb2
+    - libtbb-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libtiff-dev
+    - libjasper-dev
+    - libdc1394-22-dev
 
 - get_url: "url='{{ opencv_src_url }}' dest='{{ opencv_src_file }}'"
 - command: "unzip -n {{ opencv_src_file }}"
