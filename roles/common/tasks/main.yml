@@ -2,4 +2,4 @@
 - name: Install packages
   sudo: yes
   apt: "name='{{ item }}' state=installed update_cache=yes"
-  with_items: packages
+  with_items: common_packages
