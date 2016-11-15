@@ -37,3 +37,8 @@
 - name: Install NodeJS
   apt: pkg=nodejs state=latest update_cache=true
   when: distrosupported|success
+
+- name: Symlink NodeJS to NodeJS
+  file: src=/usr/bin/nodejs
+        dest=/usr/bin/node
+        state=link
