@@ -23,6 +23,9 @@
     - v4l2ucp
     - v4l-utils
     - libv4l-dev
+    - libgstreamer0.10-0-dbg
+    - libgstreamer0.10-0
+    - libgstreamer0.10-dev
 
 - name: Download latest OpenCV
   get_url:
@@ -30,9 +33,7 @@
     dest='{{ opencv_src_file }}'
 
 - name: Unzip OpenCV
-  unarchive:
-    src='{{ opencv_src_file }}'
-    dest='{{ opencv_src_dir }}'
+  command: "unzip -n {{ opencv_src_file }}"
 
 - name: Create Build Directory
   file: "path='{{ opencv_src_dir }}/{{ opencv_src_build_dir }}' state=directory recurse=false"
