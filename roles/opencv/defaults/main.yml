@@ -2,23 +2,21 @@
 opencv_dependencies:
   - build-essential
   - cmake
-  - git
   - libgtk2.0-dev
-  - libswscale-dev
   - pkg-config
-  - libpng-dev
-  - libtiff-dev
-  - libjpeg-dev
   - ffmpeg
   - libavcodec-dev
   - libavformat-dev
-  - libdc1394-22-dev
-  - python-numpy
+  - libswscale-dev
   - python-dev
+  - python-numpy
   - libtbb2
   - libtbb-dev
+  - libjpeg-dev
+  - libpng-dev
+  - libtiff-dev
   - libjasper-dev
-  - pkg-config
+  - libdc1394-22-dev
 opencv_src_url: "https://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.13/opencv-2.4.13.zip"
 opencv_src_file: "~/opencv-2.4.13.zip"
 opencv_src_dir: "opencv-2.4.13"
