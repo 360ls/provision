@@ -10,6 +10,13 @@ Install `ansible`:
 ```bash
 make install
 ```
+
+## Sudo
+Make sure that `sudo` is allowed without a password.
+
+1. Open up sudoers with `sudo visudo`.
+2. Add the line `user ALL=(ALL) NOPASSWD:ALL`, replacing `user` with the username.
+
 ## Provision
 
 Run the following command to run the playbook.
