@@ -5,5 +5,4 @@
   with_items:
     - vim
     - git
-    - xclip
-    - curl
+    - npm
