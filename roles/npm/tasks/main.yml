@@ -1,0 +1,3 @@
+---
+- name: Install Yarn globally.
+  npm: name=yarn global=yes
