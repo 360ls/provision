@@ -1,6 +1,0 @@
----
-common_packages:
-  - vim
-  - git
-  - xclip
-  - curl
