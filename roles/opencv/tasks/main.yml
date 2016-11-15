@@ -1,6 +1,6 @@
 ---
 - name: Install dependencies
-  sudo: yes
+  become: true
   apt: "name='{{ item }}' state=installed update_cache=yes"
   with_items: opencv_dependencies
 
@@ -14,6 +14,6 @@
   args:
     chdir: "{{ opencv_src_dir }}/{{ opencv_src_build_dir }}"
 - command: "make install"
-  sudo: yes
+  become: true
   args:
     chdir: "{{ opencv_src_dir }}/{{ opencv_src_build_dir }}"

@@ -1,6 +1,6 @@
 ---
 - name: Install packages
-  sudo: yes
+  become: true
   apt: "name='{{ item }}' state=installed update_cache=yes"
   with_items:
     - vim
