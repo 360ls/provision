@@ -3,6 +3,8 @@
   connection: local
   become: yes
   roles:
-  - node
-  - npm
-  - opencv
+    - common
+    - node
+    - npm
+    - pip
+    - opencv
