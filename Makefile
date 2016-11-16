@@ -8,3 +8,6 @@ provision:
 
 provision-dev:
 	ansible-playbook playbook.dev.yml
+
+ffmpeg:
+	./scripts/install_ffmpeg.sh
