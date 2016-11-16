@@ -4,4 +4,7 @@ install:
 	sudo apt-get install -y ansible
 
 provision:
-	ansible-playbook playbook.yml
+	ansible-playbook playbook.prod.yml
+
+provision-dev:
+	ansible-playbook playbook.dev.yml
