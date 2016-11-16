@@ -5,4 +5,4 @@
 
 - name: Install ffmpeg
   become: true
-  command: "sudo dkpg -i '{{ ffmpeg_pkg }}'"
+  command: "dpkg -i '{{ ffmpeg_pkg }}'"
