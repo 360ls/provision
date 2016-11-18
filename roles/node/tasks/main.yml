@@ -1,44 +1,25 @@
 ---
-- name: Ensure Ubuntu Distro is Supported
+- name: Download the nvm(node version manager) install script
   get_url:
-    url='https://deb.nodesource.com/node/dists/{{ ansible_distribution_release }}/Release'
-    dest=/dev/null
-  register: distrosupported
+    url='{{ nvm_url }}'
+    dest=/tmp/install.sh
 
-- name: Remove Old Chris Lea PPA
-  apt_repository:
-    repo='ppa:chris-lea/node.js'
-    state=absent
-  when: distrosupported|success
+- name: Install dependencies 
+  apt: pkg={{ item }} update_cache=yes cache_valid_time=3600
+  with_items:
+    - git
+    - curl
+    - build-essential
+    - libssl-dev
+  become: yes
 
-- name: Remove Old Chris Lea Sources
-  file:
-    path='/etc/apt/sources.list.d/chris-lea-node_js-{{ ansible_distribution_release }}.list'
-    state=absent
-  when: distrosupported|success
+- name: Execute the nvm install script
+  shell: bash install.sh chdir=/tmp executable=/bin/bash
 
-- name: Add Nodesource Keys
-  apt_key:
-    url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key
-    state=present
+- name: Register the NVM_DIR
+  shell: echo $NVM_DIR
+  register: nvm_dir 
 
-- name: Add Nodesource Apt Sources List Deb
-  apt_repository:
-    repo='deb https://deb.nodesource.com/node {{ ansible_distribution_release }} main'
-    state=present
-  when: distrosupported|success
-
-- name: Add Nodesource Apt Sources List Deb Src
-  apt_repository:
-    repo='deb-src https://deb.nodesource.com/node {{ ansible_distribution_release }} main'
-    state=present
-  when: distrosupported|success
-
-- name: Install NodeJS
-  apt: pkg=nodejs state=latest update_cache=true
-  when: distrosupported|success
-
-- name: Symlink NodeJS to NodeJS
-  file: src=/usr/bin/nodejs
-        dest=/usr/bin/node
-        state=link
+- name: Install the specified node version using the nvm command and set it as default
+  shell: . {{ nvm_dir.stdout }}/nvm.sh && nvm install {{ node_version }} && nvm run {{node_version}} --version && nvm alias default {{node_version}}
+  creates=~/.nvm/versions/node/v{{ node_version }} 

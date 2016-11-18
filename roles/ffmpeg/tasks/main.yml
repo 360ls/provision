@@ -1,8 +1,0 @@
-- name: Download latest ffmpeg debian package
-  get_url:
-    url='{{ ffmpeg_src_url }}'
-    dest='{{ ffmpeg_pkg }}'
-
-- name: Install ffmpeg
-  become: true
-  command: "dpkg -i '{{ ffmpeg_pkg }}'"
