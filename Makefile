@@ -10,4 +10,9 @@ provision-dev:
 	ansible-playbook playbook.dev.yml
 
 ffmpeg:
+	chmod +x scripts/install_ffmpeg.sh
 	./scripts/install_ffmpeg.sh
+
+setup:
+	chmod +x scripts/setup.sh
+	./scripts/setup.sh
