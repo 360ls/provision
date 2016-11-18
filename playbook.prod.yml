@@ -3,5 +3,4 @@
   connection: local
   become: yes
   roles:
-    - ffmpeg
     - opencv
