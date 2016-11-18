@@ -39,7 +39,7 @@
   file: "path='{{ opencv_src_dir }}/{{ opencv_src_build_dir }}' state=directory recurse=false"
 
 - name: Run CMake
-  command: "cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D BUILD_PYTHON_SUPPORT=ON -D BUILD_EXAMPLES=ON .."
+  command: "cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH='{{ opencv_extra_module_path }}' -D BUILD_EXAMPLES=ON .."
   args:
     chdir: "{{ opencv_src_dir }}/{{ opencv_src_build_dir }}"
 
