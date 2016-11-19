@@ -34,20 +34,14 @@
 
 - name: Unzip OpenCV
   command: "unzip -n {{ opencv_src_file }}"
-
-- name: Download latest OpenCV Contribution Release
-  get_url:
-    url='{{ opencv_contrib_url }}'
-    dest='{{ opencv_contrib_src }}'
-
-- name: Unzip OpenCV Contribution
-  command: "unzip -n {{ opencv_contrib_src }}"
+  args:
+    chdir: "~"
 
 - name: Create Build Directory
   file: "path='{{ opencv_src_dir }}/{{ opencv_src_build_dir }}' state=directory recurse=false"
 
 - name: Run CMake
-  command: "cmake -D CMAKE_BUILD_TYPE=RELEASE -D OPENCV_EXTRA_MODULES_PATH='{{ opencv_contrib_dir }}/modules' -D CMAKE_INSTALL_PREFIX=/usr/local .."
+  command: "cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local .."
   args:
     chdir: "{{ opencv_src_dir }}/{{ opencv_src_build_dir }}"
 
@@ -60,4 +54,4 @@
   command: "make install"
   become: true
   args:
-    chdir: "{{ opencv_src_dir }}/{{ opencv_src_build_dir }}"
+    chdir: "~/{{ opencv_src_dir }}/{{ opencv_src_build_dir }}"
