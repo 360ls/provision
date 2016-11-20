@@ -1,2 +1,2 @@
-SimpliField.node
+fubarhouse.nodejs
 kbrebanov.pip
