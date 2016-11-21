@@ -1,8 +1,7 @@
 # Provision
 
-Contains [Ansible](https://www.ansible.com/) playbook for installing
-[OpenCV](http://opencv.org/) and other dependencies for
-Ubuntu.
+Contains the [Ansible](https://www.ansible.com/) playbook for installing
+[OpenCV](http://opencv.org/) and other dependencies for the Jetson TX1.
 
 ## Pre-requisites
 Install `ansible`:
