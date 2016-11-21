@@ -29,12 +29,12 @@
 - name: Download latest OpenCV
   get_url:
     url='{{ opencv_src_url }}'
-    dest='{{ opencv_src_file }}'
+    dest='{{ home_dir}}/{{ opencv_src_file }}'
 
 - name: Unzip OpenCV
-  command: "unzip -n {{ opencv_src_file }}"
+  command: "unzip -n {{ home_dir}}/{{ opencv_src_file }}"
   args:
-    chdir: "~"
+    chdir: '{{ home_dir }}'
 
 - name: Create Build Directory
   file: "path='{{ opencv_src_dir }}/{{ opencv_src_build_dir }}' state=directory recurse=false"
@@ -42,14 +42,15 @@
 - name: Run CMake
   command: "cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local .."
   args:
-    chdir: "{{ opencv_src_dir }}/{{ opencv_src_build_dir }}"
+    chdir: "{{ home_dir}}/{{ opencv_src_dir }}/{{ opencv_src_build_dir }}"
 
 - name: Build OpenCV from src
   command: make
   args:
-    chdir: "{{ opencv_src_dir }}/{{ opencv_src_build_dir }}"
+    chdir: "{{ home_dir}}/{{ opencv_src_dir }}/{{ opencv_src_build_dir }}"
 
 - name: Install OpenCV
-  command: "sudo make install"
+  command: "make install"
+  become: yes
   args:
-    chdir: "~/{{ opencv_src_dir }}/{{ opencv_src_build_dir }}"
+    chdir: "{{ home_dir}}/{{ opencv_src_dir }}/{{ opencv_src_build_dir }}"

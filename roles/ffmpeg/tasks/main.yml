@@ -1,0 +1,18 @@
+---
+- name: Download ffmpeg static build
+  get_url:
+    url='{{ home_dir }}/{{ ffmpeg_src_url }}'
+    dest='{{ home_dir }}/{{ ffmpeg_src_file }}'
+
+- name: Extract Build
+  command: "tar xf '{{ home_dir }}/{{ ffmpeg_src_file }}'"
+  args:
+    chdir: '{{ home_dir }}'
+
+- name: Symlink ffmpeg binary
+  become: yes
+  file:
+    src="/home/ubuntu/ffmpeg-3.2-armhf-32bit-static/ffmpeg"
+    dest="/usr/bin/ffmpeg"
+    state=link
+    force=yes

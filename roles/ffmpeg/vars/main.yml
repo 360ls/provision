@@ -1,0 +1,4 @@
+---
+ffmpeg_src_url: "https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-armhf-32bit-static.tar.xz"
+ffmpeg_src_file: "ffmpeg-release-armhf-32bit-static.tar.xz"
+ffmpeg_binary: "ffmpeg-3.2-armhf-32bit-static-static/ffmpeg"
