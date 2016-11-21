@@ -1,0 +1,7 @@
+---
+- name: Run setup script for node 6.x
+  command: "curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -"
+
+- name: Install nodejs
+  apt: 
+    name: nodejs

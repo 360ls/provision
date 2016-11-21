@@ -5,3 +5,4 @@
     home_dir: "/home/ubuntu"
   roles:
     - ffmpeg
+    - opencv
