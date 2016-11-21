@@ -9,3 +9,4 @@ mkdir -p ~/${BASE_DIR}/${RECORDING_DIR}
 
 cd ~/${BASE_DIR}
 curl -s -o stitcher.py ${STITCHER_URL}
+chmod +x stitcher.py

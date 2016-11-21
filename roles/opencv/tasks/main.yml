@@ -7,7 +7,6 @@
     - cmake
     - libgtk2.0-dev
     - pkg-config
-    - ffmpeg
     - libavcodec-dev
     - libavformat-dev
     - libswscale-dev
@@ -51,7 +50,6 @@
     chdir: "{{ opencv_src_dir }}/{{ opencv_src_build_dir }}"
 
 - name: Install OpenCV
-  command: "make install"
-  become: true
+  command: "sudo make install"
   args:
     chdir: "~/{{ opencv_src_dir }}/{{ opencv_src_build_dir }}"
