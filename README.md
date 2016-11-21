@@ -8,7 +8,7 @@ Ubuntu.
 Install `ansible`:
 
 ```bash
-make install
+$ make install
 ```
 
 ## Sudo
@@ -21,5 +21,12 @@ Make sure that `sudo` is allowed without a password.
 
 Run the following command to run the playbook.
 ```bash
-make provision
+$ make provision
+```
+
+## Setup
+
+Run the setup script:
+```bash
+$ make setup
 ```
