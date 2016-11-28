@@ -8,14 +8,14 @@
         state=directory
 
 - name: Clone Stitcher Repo
-  git: repo={{ stitcher_url }} dest={{ home_dir }}/{{ stitcher_dir }}
+  git: repo={{ stitcher_url }} dest={{ home_dir }}/{{ config_dir }}/{{ stitcher_dir }}
 
 - name: Download stitcher script
   get_url:
     url={{ script_url }}
-    dest={{ home_dir }}/{{ stitcher_dir }}/{{ script }}
+    dest={{ home_dir }}/{{ config_dir }}/{{ script }}
 
 - name: Give executable permissions to script
-  file: path={{ home_dir }}/{{ stitcher_dir }}/{{ script }}
+  file: path={{ home_dir }}/{{ config_dir }}/{{ script }}
         state=file
         mode="u+rwx"
