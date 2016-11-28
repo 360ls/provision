@@ -1,6 +1,6 @@
 # Provision
 
-Contains the [Ansible](https://www.ansible.com/) playbook for installing
+[Ansible](https://www.ansible.com/) playbook for installing
 [OpenCV](http://opencv.org/) and other dependencies for the Jetson TX1.
 
 ## Pre-requisites
@@ -21,11 +21,4 @@ Make sure that `sudo` is allowed without a password.
 Run the following command to run the playbook.
 ```bash
 $ make provision
-```
-
-## Setup
-
-Run the setup script:
-```bash
-$ make setup
 ```

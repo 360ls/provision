@@ -1,0 +1,7 @@
+---
+config_dir: ".360ls"
+stitcher_url: "https://github.com/360ls/stitcher.git"
+stitcher_dir: "stitcher"
+recording_dir: "recordings"
+script_url: "https://raw.githubusercontent.com/360ls/desktop/master/app/services/stitcher.py"
+script: "stitcher.py"

@@ -9,7 +9,3 @@ provision:
 
 provision-dev:
 	ansible-playbook playbook.dev.yml
-
-setup:
-	chmod +x scripts/setup.sh
-	./scripts/setup.sh

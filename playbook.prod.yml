@@ -4,5 +4,6 @@
   vars:
     home_dir: "/home/ubuntu"
   roles:
+    - stitcher
     - ffmpeg
     - opencv
