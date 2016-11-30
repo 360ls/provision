@@ -1,6 +1,14 @@
 ---
-- name: Run setup script for node 6.x
-  command: "curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -"
+- name: Download setup script for node 6.x
+  get_url: 
+    url='https://deb.nodesource.com/setup_6.x'
+    dest='{{ home_dir }}/setup_6.x'
+
+- name: Run setup script
+  become: yes
+  command: "bash setup_6.x"
+  args:
+    chdir: "{{ home_dir }}"
 
 - name: Install nodejs
   apt: 
