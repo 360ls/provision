@@ -1,7 +1,7 @@
 ---
 - name: Download ffmpeg static build
   get_url:
-    url='{{ home_dir }}/{{ ffmpeg_src_url }}'
+    url='{{ ffmpeg_src_url }}'
     dest='{{ home_dir }}/{{ ffmpeg_src_file }}'
 
 - name: Extract Build

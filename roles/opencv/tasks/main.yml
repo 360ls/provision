@@ -37,7 +37,7 @@
     chdir: '{{ home_dir }}'
 
 - name: Create Build Directory
-  file: "path='{{ opencv_src_dir }}/{{ opencv_src_build_dir }}' state=directory recurse=false"
+  file: "path='{{ home_dir }}/{{ opencv_src_dir }}/{{ opencv_src_build_dir }}' state=directory recurse=false"
 
 - name: Run CMake
   command: "cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local .."
