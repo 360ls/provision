@@ -4,6 +4,7 @@
   vars:
     home_dir: "/home/ubuntu"
   roles:
+    - kbrebanov.pip 
     - stitcher
     - ffmpeg
     - opencv

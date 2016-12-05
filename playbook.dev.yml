@@ -6,6 +6,4 @@
     home_dir: "/home/ubuntu"
   roles:
     - common
-    - node
-    - kbrebanov.pip 
     - npm
