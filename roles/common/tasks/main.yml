@@ -3,6 +3,6 @@
   become: true
   apt: "name='{{ item }}' state=installed update_cache=yes"
   with_items:
-    - vim
+    - curl
     - git
-    - npm
+    - vim
