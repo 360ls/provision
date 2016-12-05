@@ -1,8 +1,0 @@
----
-- name: Run setup script
-  become: yes
-  command: "bash scripts/setup_6.x"
-
-- name: Install nodejs
-  apt: 
-    name: nodejs
