@@ -3,6 +3,7 @@ install:
 	sudo apt-get update
 	sudo apt-get install -y ansible
 	ansible-galaxy install -r roles.txt
+	bash scripts/install_node.sh
 
 provision:
 	ansible-playbook playbook.prod.yml
