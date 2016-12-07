@@ -5,20 +5,34 @@
 
 ## Pre-requisites
 
-Make sure that all of the sources in the `/etc/apt/sources.list` file are uncommented.
+### Jetson
 
-Install Ansible:
+Install [Jetpack](https://developer.nvidia.com/embedded/jetpack-archive) versions less
+than `2.1`. Our application will not work on newer versions as we require a 32-bit
+architecture to run [Electron](https://github.com/electron/electron/issues/259).
+
+### Setup
+
+First make sure to check the package sources:
 
 ```bash
-$ make install
+$ sudo vi /etc/apt/sources.list
 ```
 
-## Sudo
+Any commented sources should be uncommented.
 
 Make sure that `sudo` is allowed without a password.
 
 1. Open up sudoers with `sudo visudo`.
 2. Add the line `user ALL=(ALL) NOPASSWD:ALL`, replacing `user` with the username.
+
+### Installation
+
+Install Ansible:
+
+```bash
+$ sudo make install
+```
 
 ## Provisioning
 
