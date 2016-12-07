@@ -4,5 +4,5 @@
   vars:
     home_dir: "{{ ansible_env.HOME }}"
   roles:
-    - common
-    - npm
+    - {role: 'common', tags: 'common'}
+    - {role: 'npm', tags: 'npm'}
