@@ -34,10 +34,10 @@
     url: "{{ opencv_src_url }}"
     dest: "{{ home_dir}}/{{ opencv_src_file }}"
 
-- name: Unzip OpenCV
-  command: "unzip -n {{ home_dir}}/{{ opencv_src_file }}"
-  args:
-    chdir: "{{ home_dir }}"
+- name: Unzip OpenCV Source Code
+  unarchive:
+    src: "{{ home_dir}}/{{ opencv_src_file }}"
+    dest: "{{ home_dir }}/{{ opencv_src_dir }}"
 
 - name: Create Build Directory
   file: 
