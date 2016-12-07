@@ -1,7 +1,10 @@
 ---
 - name: Install dependencies
   become: true
-  apt: "name='{{ item }}' state=installed update_cache=yes"
+  apt:
+    name: "{{ item }}"
+    state: installed
+    update_cache: yes
   with_items:
     - build-essential
     - cmake

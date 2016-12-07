@@ -1,7 +1,10 @@
 ---
 - name: Install packages
   become: true
-  apt: "name='{{ item }}' state=installed update_cache=yes"
+  apt:
+    name: "{{ item }}"
+    state: installed 
+    update_cache: yes
   with_items:
     - curl
     - git
