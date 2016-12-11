@@ -62,7 +62,7 @@ $ make provision-dev
 
 ## Running Specific Roles
 
-To run a specific role use the tag in the playbook.
+To run a specific role, use the tag specified in the playbook.
 For example, to run the `opencv` role, you can run:
 
 ```bash
