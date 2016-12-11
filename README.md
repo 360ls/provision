@@ -51,3 +51,12 @@ To develop the [Stitcher](https://github.com/360ls/stitcher) or the [Electron](h
 ```bash
 $ make provision-dev
 ```
+
+## Running Specific Roles
+
+To run a specific role use the tag in the playbook.
+For example, to run the `opencv` role, you can run:
+
+```bash
+$ ansible-playbook playbook.prod.yml --tags "opencv"
+```

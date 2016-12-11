@@ -4,7 +4,7 @@
   vars:
     home_dir: "{{ ansible_env.HOME }}"
   roles:
-    - {role: 'kbrebanov.pip', tags: 'pip'}
-    - {role: 'stitcher', tags: 'stitcher'}
-    - {role: 'ffmpeg', tags: 'ffmpeg'}
-    - {role: 'opencv', tags: 'opencv'}
+    - {role: kbrebanov.pip, tags: ['pip']}
+    - {role: stitcher, tags: ['stitcher']}
+    - {role: ffmpeg, tags: ['ffmpeg']}
+    - {role: opencv, tags: ['opencv']}
