@@ -2,6 +2,8 @@
 
 dir="/tmp/.360ls"
 video="${dir}/out.avi"
+index=0
+pause=3
 
 function finish() {
   rm -rf "${dir}"
@@ -21,7 +23,7 @@ function setup() {
 
 function test_preview() {
   echo "Testing Camera Preview..."
-  opts="-p -i 1 --debug"
+  opts="-p ${index} 1 --debug"
 
   cmd="${dir}/stitcher.py ${opts}"
 
@@ -36,7 +38,7 @@ function test_preview() {
 
 function test_recording() {
   echo "Testing Video Recording..."
-  opts="-p -i 1 -f ${video} --debug"
+  opts="-p -i ${index} -f ${video} --debug"
 
   cmd="${dir}/stitcher.py ${opts}"
 
@@ -64,10 +66,35 @@ function test_playback() {
   fi
 }
 
+function test_stream() {
+  echo "Streaming camera..."
+  opts="-i ${index} -s --url rtmp://54.227.214.22:1935/live/myStream -f ${video} --debug"
+
+  cmd="${dir}/stitcher.py ${opts}"
+
+  eval "${cmd}"
+
+  if [ $? -eq 0 ]; then
+    echo "Stream Success ✓"
+  else
+    echo "Stream Failed ✗"
+  fi
+}
+
 function main() {
   setup
+
   test_preview
   test_recording
+
+  sleep "${pause}"
+  test_playback
+
+  rm -f "${video}"
+
+  test_stream
+  sleep "${pause}"
+
   test_playback
 }
 
