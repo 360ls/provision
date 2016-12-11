@@ -44,6 +44,14 @@ $ make provision
 
 Provisioning will take around an hour or so to compile and build OpenCV from the source.
 
+## Testing Setup
+
+Run the test script to make sure all of the expected functionalities are working:
+
+```bash
+$ make test
+```
+
 ## Developer Environment
 
 To develop the [Stitcher](https://github.com/360ls/stitcher) or the [Electron](https://github.com/360ls/desktop) application you will need to provision the developer environment with the following command:

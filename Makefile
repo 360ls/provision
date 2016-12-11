@@ -10,3 +10,6 @@ provision:
 
 provision-dev:
 	ansible-playbook playbook.dev.yml
+
+test:
+	bash scripts/test.sh
