@@ -37,7 +37,7 @@
 - name: Unzip OpenCV Source Code
   unarchive:
     src: "{{ home_dir}}/{{ opencv_src_file }}"
-    dest: "{{ home_dir }}/{{ opencv_src_dir }}"
+    dest: "{{ home_dir }}"
 
 - name: Create Build Directory
   file: 
