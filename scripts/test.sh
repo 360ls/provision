@@ -23,16 +23,16 @@ function setup() {
 
 function test_preview() {
   echo "Testing Camera Preview..."
-  opts="-p ${index} 1 --debug"
+  opts="-p -i ${index} --debug"
 
   cmd="${dir}/stitcher.py ${opts}"
 
   eval "${cmd}"
 
   if [ $? -eq 0 ]; then
-    echo "Camera Preview Success ✓"
+    print_success "Camera Preview Success ✓"
   else
-    echo "Camera Preview Failed ✗"
+    print_fail "Camera Preview Failed ✗"
   fi
 }
 
@@ -45,9 +45,9 @@ function test_recording() {
   eval "${cmd}"
 
   if [ $? -eq 0 ]; then
-    echo "Recording Success ✓"
+    print_success "Recording Success ✓"
   else
-    echo "Recording Failed ✗"
+    print_fail "Recording Failed ✗"
   fi
 }
 
@@ -60,9 +60,9 @@ function test_playback() {
   eval "${cmd}"
 
   if [ $? -eq 0 ]; then
-    echo "Playback Success ✓"
+    print_success "Playback Success ✓"
   else
-    echo "Playback Failed ✗"
+    print_fail "Playback Failed ✗"
   fi
 }
 
@@ -75,10 +75,22 @@ function test_stream() {
   eval "${cmd}"
 
   if [ $? -eq 0 ]; then
-    echo "Stream Success ✓"
+    print_success "Stream Success ✓"
   else
-    echo "Stream Failed ✗"
+    print_fail "Stream Failed ✗"
   fi
+}
+
+function print_success() {
+  GREEN='\033[0;32m'
+  NC='\033[0m'
+  printf "${GREEN}$1${NC}\n"
+}
+
+function print_fail() {
+  RED='\033[0;31m'
+  NC='\033[0m'
+  printf "${RED}$1${NC}\n"
 }
 
 function main() {
